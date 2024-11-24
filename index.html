@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Association of Colleges Charter</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        /* Custom light mode styles */
+        body {
+            background-color: #f5f5f5;
+            color: #6b6b6b;
+        }
+
+        .navbar {
+            background-color: #00818A;
+        }
+
+        .navbar-brand, .navbar-logo-text {
+            color: white;
+        }
+
+        .footer {
+            background-color: #00818A;
+            color: white;
+        }
+
+        .section-title {
+            color: #00818A;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+
+        .form-label {
+            color: #6b6b6b;
+        }
+
+        /* Commitment Section ticks only */
+        .commitment-list li {
+            list-style-type: none;
+        }
+
+        .commitment-list li::before {
+            content: '✔';
+            margin-right: 10px;
+            color: #00818A;  /* Color of the tick */
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #006780; /* Deep marine */
+            color: #f5f5f5;
+        }
+
+        .navbar.dark-mode {
+            background-color: #004D61;
+        }
+
+        .footer.dark-mode {
+            background-color: #002B36;
+            color: #f5f5f5;
+        }
+
+        /* Update for all titles (h1, h2, etc.) */
+        h1, h2, h3, h4, h5, h6 {
+            color: #00818A;  /* Default title color */
+        }
+
+        /* In dark mode, change all titles to white */
+        body.dark-mode h1, 
+        body.dark-mode h2, 
+        body.dark-mode h3, 
+        body.dark-mode h4, 
+        body.dark-mode h5, 
+        body.dark-mode h6 {
+            color: #ffffff;  /* Change title color to white in dark mode */
+        }
+
+        .form-label.dark-mode {
+            color: #fafafa;
+        }
+
+        .btn-danger.dark-mode {
+            background-color: #ff5555;
+            border-color: #ff4444;
+        }
+
+        /* Dyslexia-friendly mode styles */
+        body.dyslexia-mode {
+            background-color: #E8F0FE;
+            color: #002B36;
+            font-family: 'OpenDyslexic', sans-serif;
+        }
+
+        .navbar.dyslexia-mode {
+            background-color: #336699;
+        }
+
+        .footer.dyslexia-mode {
+            background-color: #336699;
+            color: #f5f5f5;
+        }
+
+        .section-title.dyslexia-mode {
+            color: #004D61;
+        }
+
+        .form-label.dyslexia-mode {
+            color: #004D61;
+        }
+
+        .btn-danger.dyslexia-mode {
+            background-color: #004D61;
+            border-color: #003B50;
+        }
+    </style>
+
+    <!-- Load OpenDyslexic Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=OpenDyslexic&display=swap">
+
+</head>
+
+<body class="light-mode">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <img src="https://www.aoc.co.uk/skin/aoc-logo.svg" alt="AoC Logo" style="height: 55px; background-color: white; padding: 5px; border-radius: 5px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('contact') }}">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('charter') }}">Charter Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('colleges') }}">Signed Colleges</a>
+                    </li>
+                    <button id="theme-toggle" class="btn btn-outline-primary ms-2">Switch to Dark Mode</button>
+                    <button id="dyslexia-toggle" class="btn btn-outline-warning ms-2">Accessibility Mode</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Introduction Section -->
+    <div class="container text-center mt-5">
+        <h1 class="section-title">AoC Charter for Student Engagement</h1>
+        <p>Students are partners in the education process and colleges benefit enormously from engaging with them at every level. This engagement needs to be authentic and meaningful and to build on students’ knowledge, skills, experience, and aspirations.</p>
+    </div>
+
+    <!-- College Commitment Section -->
+    <div class="container mt-5">
+        <h2 class="section-title">College Commitment</h2>
+        <p>Our college will:</p>
+        <ul class="commitment-list">
+            <li>Create and nurture a culture of partnership and engagement and treat our students as partners in learning.</li>
+            <li>Treat our students with respect and listen to their views.</li>
+            <li>Value, promote, and embed student engagement across our college's work.</li>
+            <li>Create inclusive student representative structures.</li>
+            <li>Help our students develop the skills and confidence needed for participation and leadership.</li>
+            <li>Encourage high participation in all student elections.</li>
+            <li>Promote equality, celebrate diversity, and reflect student cohort diversity.</li>
+            <li>Provide opportunities for student involvement in Youth Social Action and leadership activity.</li>
+        </ul>
+    </div>
+    
+    <!-- Purpose Section -->
+    <div class="container mt-5">
+        <h2 class="section-title">Purpose</h2>
+        <p>The purpose of the Association of Colleges is to:</p>
+        <ul>
+            <li>Enhance educational opportunities for all students.</li>
+            <li>Encourage personal and professional growth through diverse programs.</li>
+            <li>Foster a community of collaboration among colleges and institutions.</li>
+        </ul>
+    </div>
+
+    <!-- Values Section -->
+    <div class="container mt-5">
+        <h2 class="section-title">Values</h2>
+        <p>We are committed to the following core values:</p>
+        <ul>
+            <li><strong>Inclusivity:</strong> Embracing diversity and ensuring everyone feels welcome.</li>
+            <li><strong>Integrity:</strong> Upholding the highest standards of honesty and transparency.</li>
+            <li><strong>Excellence:</strong> Striving for the highest quality in all our programs and initiatives.</li>
+        </ul>
+    </div>
+
+    <!-- Objectives Section -->
+    <div class="container mt-5">
+        <h2 class="section-title">Objectives</h2>
+        <p>Our objectives include:</p>
+        <ul>
+            <li>Providing resources and support for college enrichment activities.</li>
+            <li>Facilitating workshops and events that promote learning and collaboration.</li>
+            <li>Building partnerships with educational and community organizations.</li>
+        </ul>
+    </div>
+
+    <!-- College Sign-Up Form Section -->
+    <div class="container mt-5">
+        <h2 class="section-title">Sign Up Your College</h2>
+        <form id="college-signup-form" action="/submit-signup" method="post">
+            <div class="mb-3">
+                <label for="college-name" class="form-label">College Name</label>
+                <input type="text" class="form-control" id="college-name" name="college-name" required>
+            </div>
+            <div class="mb-3">
+                <label for="leader-name" class="form-label">Official Leader's Name</label>
+                <input type="text" class="form-control" id="leader-name" name="leader-name" required>
+            </div>
+            <div class="mb-3">
+                <label for="leader-email" class="form-label">Official Leader's Email</label>
+                <input type="email" class="form-control" id="leader-email" name="leader-email" required>
+            </div>
+            <div class="mb-3">
+                <label for="leader-proof" class="form-label">Upload Proof of Leadership</label>
+                <input type="file" class="form-control" id="leader-proof" name="leader-proof" required>
+            </div>
+            <div class="mb-3">
+                <label for="college-address" class="form-label">College Address</label>
+                <input type="text" class="form-control" id="college-address" name="college-address" required>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="agreement" name="agreement" required>
+                <label class="form-check-label" for="agreement">I agree to the <a href="#">charter</a>.</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+
+     <!-- Footer Section -->
+     <footer class="footer text-center p-4 mt-5">
+        <p>&copy; 2024 Association of Colleges. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-6Q+2Hzd2ZkX06xZ60z8D4+FJbpnPh0xw+lINXYaWfd5g9D6NOOkK1FsPTp7h02R4" crossorigin="anonymous"></script>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const dyslexiaToggleBtn = document.getElementById('dyslexia-toggle');
+        const body = document.body;
+        
+        // Toggle between light mode and dark mode
+        themeToggleBtn.addEventListener('click', function () {
+            body.classList.toggle('dark-mode');
+            themeToggleBtn.textContent = body.classList.contains('dark-mode') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+        });
+
+        // Toggle dyslexia-friendly mode
+        dyslexiaToggleBtn.addEventListener('click', function () {
+            body.classList.toggle('dyslexia-mode');
+            dyslexiaToggleBtn.textContent = body.classList.contains('dyslexia-mode') ? 'Switch to Standard Mode' : 'Accessibility Mode';
+        });
+    </script>
+</body>
+</html>
