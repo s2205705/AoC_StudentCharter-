@@ -14,7 +14,10 @@
             background-color: #f5f5f5;
             color: #6b6b6b;
         }
-
+        .btn-danger.dark-mode {
+            background-color: #ff5555;
+            border-color: #ff4444;
+        }
         .navbar {
             background-color: #00818A;
         }
@@ -34,14 +37,14 @@
             margin-bottom: 20px;
         }
 
-        .btn-danger {
-            background-color: #dc3545;
-            border-color: #dc3545;
+        .btn-primary {
+            background-color: #ece6f5;
+            border-color: #dddddd;
         }
 
-        .btn-danger:hover {
-            background-color: #c82333;
-            border-color: #bd2130;
+        .btn-primary:hover {
+            background-color: #f1ecee;
+            border-color: #f7f7f7;
         }
 
         .form-label {
@@ -56,12 +59,25 @@
         .commitment-list li::before {
             content: '✔';
             margin-right: 10px;
-            color: #00818A;  /* Color of the tick */
+            color: blue;
+        }
+        /* Light Mode Button */
+        .btn-primary {
+           background-color: #ff4d4d;  /* Red background */
+           border-color: #e60000;      /* Red border */
+           color: white;               /* White text */
+          
+        }
+        
+        .btn-primary:hover {
+          background-color: #ff6666;  /* Lighter red on hover */
+          border-color: #e60000;      /* Red border on hover */
+          
         }
 
         /* Dark mode styles */
         body.dark-mode {
-            background-color: #006780; /* Deep marine */
+            background-color: #006780;/*Deep marine*/
             color: #f5f5f5;
         }
 
@@ -74,29 +90,30 @@
             color: #f5f5f5;
         }
 
-        /* Update for all titles (h1, h2, etc.) */
-        h1, h2, h3, h4, h5, h6 {
-            color: #00818A;  /* Default title color */
-        }
-
-        /* In dark mode, change all titles to white */
-        body.dark-mode h1, 
-        body.dark-mode h2, 
-        body.dark-mode h3, 
-        body.dark-mode h4, 
-        body.dark-mode h5, 
-        body.dark-mode h6 {
-            color: #ffffff;  /* Change title color to white in dark mode */
+        .section-title.dark-mode {
+            color: #f8ebed;
         }
 
         .form-label.dark-mode {
             color: #fafafa;
         }
 
-        .btn-danger.dark-mode {
-            background-color: #ff5555;
-            border-color: #ff4444;
+        .btn-primary.dark-mode {
+            background-color: #fafafa;
+            border-color: #f5edf0;
         }
+        /* Dark Mode Button */
+        .btn-primary.dark-mode {
+          background-color: #ff4d4d;  /* Red background */
+          border-color: #e60000;      /* Red border */
+          color: white;               /* White text */
+          }
+          
+          .btn-primary.dark-mode:hover {
+            background-color: #ff6666;  /* Lighter red on hover */
+            border-color: #e60000;      /* Red border on hover */
+            
+          }
 
         /* Dyslexia-friendly mode styles */
         body.dyslexia-mode {
@@ -122,7 +139,7 @@
             color: #004D61;
         }
 
-        .btn-danger.dyslexia-mode {
+        .btn-primary.dyslexia-mode {
             background-color: #004D61;
             border-color: #003B50;
         }
@@ -136,29 +153,31 @@
 <body class="light-mode">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('index') }}">
+            <a class="navbar-brand" id="logo" href="#">
                 <img src="https://www.aoc.co.uk/skin/aoc-logo.svg" alt="AoC Logo" style="height: 55px; background-color: white; padding: 5px; border-radius: 5px;">
             </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                        <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('contact') }}">Contact Us</a>
+                        <a class="nav-link" href="contact.html">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('charter') }}">Charter Download</a>
+                        <a class="nav-link" href="charter.html">Charter Download</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('colleges') }}">Signed Colleges</a>
+                        <a class="nav-link" href="signed_colleges.html">Signed Colleges</a>
                     </li>
-                    <button id="theme-toggle" class="btn btn-outline-primary ms-2">Switch to Dark Mode</button>
-                    <button id="dyslexia-toggle" class="btn btn-outline-warning ms-2">Accessibility Mode</button>
-                </ul>
+  
+                <button id="theme-toggle" class="btn btn-outline-primary ms-2">Switch to Dark Mode</button>
+                <button id="dyslexia-toggle" class="btn btn-outline-warning ms-2">Accessibility Mode</button>
             </div>
         </div>
     </nav>
@@ -249,31 +268,102 @@
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
     </div>
+  
 
-     <!-- Footer Section -->
-     <footer class="footer text-center p-4 mt-5">
+    <!-- Footer Section -->
+    <footer class="footer text-center p-4 mt-5">
         <p>&copy; 2024 Association of Colleges. All rights reserved.</p>
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-6Q+2Hzd2ZkX06xZ60z8D4+FJbpnPh0xw+lINXYaWfd5g9D6NOOkK1FsPTp7h02R4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
+    <!-- Dark Mode and Dyslexia Mode Script -->
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
         const dyslexiaToggleBtn = document.getElementById('dyslexia-toggle');
-        const body = document.body;
-        
-        // Toggle between light mode and dark mode
+        const bodyElement = document.body;
+        const navbarElement = document.querySelector('.navbar');
+        const footerElement = document.querySelector('.footer');
+        const sectionTitles = document.querySelectorAll('.section-title');
+        const formLabels = document.querySelectorAll('.form-label');
+        const primaryButtons = document.querySelectorAll('.btn-primary');
+        const navbarBrand = document.getElementById('logo');
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            enableDarkMode();
+        }
+
+        if (localStorage.getItem('dyslexiaMode') === 'true') {
+            enableDyslexiaMode();
+        }
+
+        // Dark Mode Toggle
         themeToggleBtn.addEventListener('click', function () {
-            body.classList.toggle('dark-mode');
-            themeToggleBtn.textContent = body.classList.contains('dark-mode') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+            if (bodyElement.classList.contains('dark-mode')) {
+                disableDarkMode();
+            } else {
+                enableDarkMode();
+            }
         });
 
-        // Toggle dyslexia-friendly mode
+        function enableDarkMode() {
+            bodyElement.classList.add('dark-mode');
+            navbarElement.classList.add('dark-mode');
+            footerElement.classList.add('dark-mode');
+            sectionTitles.forEach(title => title.classList.add('dark-mode'));
+            formLabels.forEach(label => label.classList.add('dark-mode'));
+            primaryButtons.forEach(button => button.classList.add('dark-mode'));
+            navbarBrand.classList.remove('white-background');
+            navbarBrand.classList.add('red-background');
+            themeToggleBtn.textContent = 'Switch to Light Mode';
+            localStorage.setItem('theme', 'dark');
+        }
+
+        function disableDarkMode() {
+            bodyElement.classList.remove('dark-mode');
+            navbarElement.classList.remove('dark-mode');
+            footerElement.classList.remove('dark-mode');
+            sectionTitles.forEach(title => title.classList.remove('dark-mode'));
+            formLabels.forEach(label => label.classList.remove('dark-mode'));
+            primaryButtons.forEach(button => button.classList.remove('dark-mode'));
+            navbarBrand.classList.remove('red-background');
+            navbarBrand.classList.add('white-background');
+            themeToggleBtn.textContent = 'Switch to Dark Mode';
+            localStorage.setItem('theme', 'light');
+        }
+
+        // Dyslexia Mode Toggle
         dyslexiaToggleBtn.addEventListener('click', function () {
-            body.classList.toggle('dyslexia-mode');
-            dyslexiaToggleBtn.textContent = body.classList.contains('dyslexia-mode') ? 'Switch to Standard Mode' : 'Accessibility Mode';
+            if (bodyElement.classList.contains('dyslexia-mode')) {
+                disableDyslexiaMode();
+            } else {
+                enableDyslexiaMode();
+            }
         });
+
+        function enableDyslexiaMode() {
+            bodyElement.classList.add('dyslexia-mode');
+            navbarElement.classList.add('dyslexia-mode');
+            footerElement.classList.add('dyslexia-mode');
+            sectionTitles.forEach(title => title.classList.add('dyslexia-mode'));
+            formLabels.forEach(label => label.classList.add('dyslexia-mode'));
+            primaryButtons.forEach(button => button.classList.add('dyslexia-mode'));
+            dyslexiaToggleBtn.textContent = 'Disable Accessibility Mode';
+            localStorage.setItem('dyslexiaMode', 'true');
+        }
+
+        function disableDyslexiaMode() {
+            bodyElement.classList.remove('dyslexia-mode');
+            navbarElement.classList.remove('dyslexia-mode');
+            footerElement.classList.remove('dyslexia-mode');
+            sectionTitles.forEach(title => title.classList.remove('dyslexia-mode'));
+            formLabels.forEach(label => label.classList.remove('dyslexia-mode'));
+            primaryButtons.forEach(button => button.classList.remove('dyslexia-mode'));
+            dyslexiaToggleBtn.textContent = 'Enable Accessibility Mode';
+            localStorage.setItem('dyslexiaMode', 'false');
+        }
     </script>
 </body>
 </html>
